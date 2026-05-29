@@ -1,3 +1,4 @@
+import logging
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from rest_framework.exceptions import PermissionDenied
@@ -8,6 +9,8 @@ from django.db import IntegrityError, transaction
 from django.conf import settings as django_settings
 from .models import UserProfile
 from .email import CustomActivationEmail
+
+logger = logging.getLogger(__name__)
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -127,8 +130,13 @@ class UserCreateSerializer(serializers.ModelSerializer):
                     user.is_active = False
                     user.save(update_fields=['is_active'])
                     request = self.context.get('request')
-                    activation_email = CustomActivationEmail(request=request, context={'user': user})
-                    activation_email.send([user.email])
+                    try:
+                        activation_email = CustomActivationEmail(request=request, context={'user': user})
+                        activation_email.send([user.email])
+                    except Exception as email_error:
+                        # Email failed (SMTP blocked) but user was created — don't crash
+                        logger.error(f"Failed to send activation email to {user.email}: {email_error}")
+
         except IntegrityError as exc:
             raise serializers.ValidationError(
                 {'non_field_errors': ['Unable to create account. A user with this username or email may already exist.']}
