@@ -178,12 +178,11 @@ CLOUDINARY_STORAGE = {
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.resend.com'
-EMAIL_PORT = 465
-EMAIL_USE_SSL = True
-EMAIL_USE_TLS = False
+EMAIL_PORT = 587
 EMAIL_HOST_USER = 'resend'
 EMAIL_HOST_PASSWORD = os.environ.get('re_DBPifRgh_3sDfvDSMafrGSrz2xJ2NTE8H')
-DEFAULT_FROM_EMAIL = 'onboarding@yourdomain.com'  # must be a verified Resend sender
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Kitchen System <onboarding@resend.dev>'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
