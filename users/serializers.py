@@ -133,8 +133,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
                     try:
                         activation_email = CustomActivationEmail(request=request, context={'user': user})
                         activation_email.send([user.email])
-                    except Exception as email_error:
-                        # Email failed (SMTP blocked) but user was created — don't crash
+                    except BaseException as email_error:
                         logger.error(f"Failed to send activation email to {user.email}: {email_error}")
 
         except IntegrityError as exc:

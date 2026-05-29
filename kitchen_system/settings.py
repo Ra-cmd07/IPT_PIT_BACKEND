@@ -176,14 +176,13 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', 'HOKZDDJhRNF7cMaC_lgDSZFtEz8'),
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.resend.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'resend'
-EMAIL_HOST_PASSWORD = os.environ.get('re_DBPifRgh_3sDfvDSMafrGSrz2xJ2NTE8H')
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'Kitchen System <onboarding@resend.dev>'
-
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'cabalitrae6@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'yenbprvtanaqbsum')
+EMAIL_TIMEOUT = 5  # <-- ADD THIS LINE — fail fast after 5 seconds
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'cabalitrae6@gmail.com')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
