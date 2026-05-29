@@ -176,12 +176,14 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', 'HOKZDDJhRNF7cMaC_lgDSZFtEz8'),
 }
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'cabalitrae6@gmail.com')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'yenbprvtanaqbsum')
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'cabalitrae6@gmail.com')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.resend.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = 'resend'
+EMAIL_HOST_PASSWORD = os.environ.get('re_DBPifRgh_3sDfvDSMafrGSrz2xJ2NTE8H')
+DEFAULT_FROM_EMAIL = 'onboarding@yourdomain.com'  # must be a verified Resend sender
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
