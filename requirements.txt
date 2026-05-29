@@ -1,0 +1,7 @@
+Django==6.0.3
+djangorestframework
+Djoser
+djangorestframework-simplejwt
+django-cors-headers
+cloudinary
+gunicorn
