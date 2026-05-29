@@ -185,5 +185,4 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'cabalitrae6@gmail.com'
 
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
