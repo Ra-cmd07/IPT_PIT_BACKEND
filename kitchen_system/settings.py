@@ -155,7 +155,7 @@ DJOSER = {
     'SEND_ACTIVATION_EMAIL': True,
     'ACTIVATION_URL': os.environ.get(
         'DJOSER_ACTIVATION_URL',
-        'http://localhost:5173/activate/{uid}/{token}'
+        'https://ipt-pit-frontend.onrender.com/activate/{uid}/{token}'
     ),
     'EMAIL': {
         'activation': 'users.email.CustomActivationEmail',
