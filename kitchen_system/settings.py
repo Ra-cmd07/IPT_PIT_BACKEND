@@ -176,12 +176,12 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', 'HOKZDDJhRNF7cMaC_lgDSZFtEz8'),
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
+EMAIL_HOST_USER = 'cabalitrae6@gmail.com'
+EMAIL_HOST_PASSWORD = 'yenbprvtanaqbsum'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
-OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
+DEFAULT_FROM_EMAIL = 'cabalitrae6@gmail.com'
+
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
