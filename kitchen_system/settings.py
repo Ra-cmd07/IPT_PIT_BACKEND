@@ -176,13 +176,7 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', 'HOKZDDJhRNF7cMaC_lgDSZFtEz8'),
 }
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'cabalitrae6@gmail.com'
-EMAIL_HOST_PASSWORD = 'yenbprvtanaqbsum'
-EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'users.resend_backend.ResendEmailBackend'
+DEFAULT_FROM_EMAIL = 'Kitchen System <onboarding@resend.dev>'
 
-DEFAULT_FROM_EMAIL = 'cabalitrae6@gmail.com'
-
-DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', '')
